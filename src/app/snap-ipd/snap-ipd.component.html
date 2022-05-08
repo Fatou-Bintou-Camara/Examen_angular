@@ -1,0 +1,41 @@
+<div class="ipd-snap-card" [ngClass]="{like: buttonText ==='Dislike'}" >
+  <p>{{pendaG8.pseudo}}
+  <p>Publié le {{pendaG8.date | date : 'dd/MM/yy , HH:mm'}}</p>
+  <h1>{{pendaG8.title | titlecase}}</h1>
+  <h6 *ngIf="pendaG8.localisation">Mise en ligne depuis {{pendaG8.localisation}} </h6>
+  <p style="color: blue;">{{pendaG8.description}}</p>
+  <img  src="{{pendaG8.imageUrl}}" width="500" height="320"/>
+
+
+
+
+  <div style=" padding: 30px;" class="shadow m-3">
+    <div>
+      <h5 *ngFor="let item of tab;let i">{{tab}}</h5>
+    </div>
+    <div>
+      <div style="display: flex;align-items: center" (click)="onAddLikeCommentaire()">
+        <i class="fa-solid fa-thumbs-up"></i>
+        <span style="margin-left: 10px">{{pendaG8.aime_commentaire}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group mb-2">
+    <input type="text" class="form-control" placeholder="Votre commentaire" [(ngModel)]="i">
+    <button class="btn btn-outline-secondary" type="button" (click)="addCommentaire()">Envoyer</button>
+  </div>
+
+
+
+
+
+
+  <p>
+      <button class="btn btn-outline-primary" (click)="onAddlike()">
+          {{buttonText}}:
+  </button>
+  {{pendaG8.aime}}
+  </p>
+
+</div>
